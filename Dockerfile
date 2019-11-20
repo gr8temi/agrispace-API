@@ -9,3 +9,7 @@ RUN \
     python3 -m pip install -r requirements.txt --no-cache-dir && \
     apk --purge del .build-deps
 COPY . /api/
+
+RUN python manage.py collectstatic --noinput
+
+CMD gunicorn Agrispace.wsgi:application --bind 0.0.0.0:8000
