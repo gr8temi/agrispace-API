@@ -9,3 +9,11 @@ before_script: pip install docker-compose
 
 script:
   - docker-compose run web sh -c "python3 manage.py test"
+
+deploy:
+  provider: heroku
+  api_key: 
+    secure: 5f03ab22-2e3d-4267-b738-54c420172c16
+  app: ancient-inlet-56922
+  on:
+    repo: gr8temi/agrispace-API

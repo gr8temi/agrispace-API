@@ -1,21 +1,9 @@
 version: '3'
-
 services:
-  postgres:
-    image: postgres:11.6-alpine
-    environment:
-      - POSTGRES_DB=agric
-      - POSTGRES_USER=agric
-      - POSTGRES_PASSWORD=agric
-    ports:
-      - "5430:5432"
-    
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/api
+      - ".:/api"
     ports:
       - "8000:8000"
-    depends_on:
-      - postgres

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+# from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -76,12 +76,9 @@ WSGI_APPLICATION = 'Agrispace.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'agric',
-        'USER': 'agric',
-        'PASSWORD': 'agric',
-        'HOST': 'postgres',
-        'PORT': 5432,
+        'ENGINE': 'djongo',
+        'HOST':'mongodb://admin:ezwmD9N5qbmawmVE@SG-Agrispace-28152.servers.mongodirector.com:27017/admin',
+
     }
 }
 
