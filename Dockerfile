@@ -14,5 +14,4 @@ RUN python manage.py collectstatic --noinput
 RUN adduser -D myuser
 USER myuser
 
-
 CMD gunicorn Agrispace.wsgi:application --bind 0.0.0.0:$PORT
