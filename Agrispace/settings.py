@@ -91,13 +91,13 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'djongo',
-            'HOST': 'mongodb://admin:ezwmD9N5qbmawmVE@SG-Agrispace-28152.servers.mongodirector.com:27017/admin',
+            'DB_HOST': 'mongodb://admin:ezwmD9N5qbmawmVE@SG-Agrispace-28152.servers.mongodirector.com:27017/admin',
 
         }
     }
 
-print("Here is my env HOST: "+os.getenv("HOST"))
-# print(config())
+print("Here is my env HOST: "+os.getenv("MONGO_URI"))
+print(config("DEBUG"))
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
