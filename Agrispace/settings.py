@@ -95,10 +95,6 @@ else:
 
         }
     }
-
-print("Here is my env HOST: "+os.getenv("MONGO_URI"))
-print(config("DEBUG"))
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
