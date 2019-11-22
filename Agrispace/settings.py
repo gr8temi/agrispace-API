@@ -87,7 +87,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'djongo',
-            'HOST': config("HOST"),
+            'HOST': 'mongodb://admin:ezwmD9N5qbmawmVE@SG-Agrispace-28152.servers.mongodirector.com:27017/admin',
 
         }
     }
