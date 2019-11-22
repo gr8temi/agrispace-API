@@ -91,10 +91,9 @@ else:
 
         }
     }
-print(DEBUG)
-print(config("HOST", cast=str))
 
-
+print(config("HOST", cast=str, default="I can't find the env"))
+# print(config())
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
