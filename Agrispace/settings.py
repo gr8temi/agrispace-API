@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-# from decouple import config
+from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k4npo=2(dqxih*ib1*yylq$*0ij4bywg880^(&t=&ca-b5f+q6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','ancient-inlet-56922.herokuapp.com']
 
@@ -73,14 +73,25 @@ WSGI_APPLICATION = 'Agrispace.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'djongo',
+            # 'HOST':"localhost",
+            'NAME':"Agrispace",
+            "PORT": 27017
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'HOST':'mongodb://admin:ezwmD9N5qbmawmVE@SG-Agrispace-28152.servers.mongodirector.com:27017/admin',
 
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'djongo',
+            'HOST': config("HOST"),
+
+        }
+    }
 
 
 
