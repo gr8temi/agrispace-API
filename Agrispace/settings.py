@@ -91,7 +91,9 @@ else:
 
         }
     }
+print(DEBUG)
 print(config("HOST", cast=str))
+
 
 
 # Password validation
