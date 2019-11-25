@@ -14,6 +14,9 @@ def home(request):
   return JsonResponse(dict(message='Welcome to the Phonebook API', ticket="12345"), status=200)
 
 class Info(APIView):
+	"""
+	Returns information about the company
+	"""
 	def get(self, request, *args, **kwargs):
 		queryset = Information.objects.all()
 		data = InfoSerializers(queryset, many=True).data
