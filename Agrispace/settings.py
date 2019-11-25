@@ -23,7 +23,7 @@ SECRET_KEY = 'k4npo=2(dqxih*ib1*yylq$*0ij4bywg880^(&t=&ca-b5f+q6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
-ALLOWED_HOSTS = ['127.0.0.1','ancient-inlet-56922.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','ancient-inlet-56922.herokuapp.com']
 
 
 # Application definition
@@ -35,12 +35,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.openid',
+    # 'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.openid',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True  
+
 
 ROOT_URLCONF = 'Agrispace.urls'
 
@@ -139,10 +145,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'staticfiles'),
 )
-# AUTHENTICATION_BACKENDS = (
-#     'django.contrib.auth.backends.ModelBackend',
-#     "allauth.account.auth_backends.AuthenticationBackend",
-#     )
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
+    )
 # ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_USERNAME_REQUIRED = True
 # ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
@@ -168,3 +174,4 @@ STATICFILES_DIRS = (
 # ]
 # }
 # }
+CORS_ORIGIN_ALLOW_ALL = True
