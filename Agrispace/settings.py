@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.sites',
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.openid',
     'corsheaders',
     'rest_framework',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -145,33 +145,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'staticfiles'),
 )
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    "allauth.account.auth_backends.AuthenticationBackend",
-    )
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_USERNAME_REQUIRED = True
-# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
-# ACCOUNT_SESSION_REMEMBER = None
-# ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-# ACCOUNT_UNIQUE_EMAIL = True
-# # ACCOUNT_EMAIL_VERIFICATION ="optional"
-# # ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =3
-# # ACCOUNT_CONFIRM_EMAIL_ON_GET=True
-# SOCIALACCOUNT_ADAPTER ="allauth.socialaccount.adapter.DefaultSocialAccountAdapter"
-# SOCIALACCOUNT_AUTO_SIGNUP =True
-# SOCIALACCOUNT_FORMS ={'signup': 'Accounts.forms.SocialForm'}
-# SITE_ID = 1
-# ACCOUNT_FORMS = {'signup': 'Accounts.forms.MyCustomSignupForm'}
-# AUTH_USER_MODEL = 'Accounts.CustomUser'
-
-# SOCIALACCOUNT_PROVIDERS = {
-# 'openid': {
-# 'SERVERS': [
-# dict(id='google',
-# name='Google',
-# openid_url='https://www.google.com/accounts/o8/id'),
-# ]
-# }
-# }
 CORS_ORIGIN_ALLOW_ALL = True
