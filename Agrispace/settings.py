@@ -16,8 +16,6 @@ import cloudinary
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-print(os.environ)
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -27,7 +25,7 @@ SECRET_KEY = 'k4npo=2(dqxih*ib1*yylq$*0ij4bywg880^(&t=&ca-b5f+q6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = ['localhost','127.0.0.1','ancient-inlet-56922.herokuapp.com']
-
+print(config('DEBUG', cast=bool))
 
 # Application definition
 
