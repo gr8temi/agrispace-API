@@ -8,7 +8,7 @@ COPY requirements.txt /api/
 RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN \
-    python3 -m pip install -r requirements.txt python-decouple pymongo[srv] --no-cache-dir 
+    python3 -m pip install -r requirements.txt --no-cache-dir 
 COPY . /api/
 
 RUN python manage.py collectstatic --noinput
