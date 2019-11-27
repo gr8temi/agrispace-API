@@ -5,8 +5,9 @@ ENV DEBUG 0
 RUN mkdir /api
 WORKDIR /api
 COPY requirements.txt /api/
+RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
+ENV LIBRARY_PATH=/lib:/usr/lib
 RUN \
-    apk add --no-cache zlib1g-dev && \
     python3 -m pip install -r requirements.txt python-decouple pymongo[srv] --no-cache-dir 
 COPY . /api/
 
