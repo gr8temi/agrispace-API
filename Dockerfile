@@ -6,7 +6,6 @@ RUN mkdir /api
 WORKDIR /api
 COPY requirements.txt /api/
 RUN \
-    apk add --no-cache libjpeg-dev && \
     apk add --no-cache zlib1g-dev && \
     python3 -m pip install -r requirements.txt python-decouple pymongo[srv] --no-cache-dir 
 COPY . /api/
