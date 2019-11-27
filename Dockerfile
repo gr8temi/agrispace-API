@@ -1,7 +1,6 @@
 FROM python:3.7-alpine
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV DEBUG 0
 RUN mkdir /api
 WORKDIR /api
 COPY requirements.txt /api/
