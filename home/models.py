@@ -27,9 +27,14 @@ class Information(models.Model):
         return self.name
 
 class Category(models.Model):
-    """Model definition for Category."""
+    """Model definition for Category of jobs.
 
-    # TODO: Define fields here
+    attributes:
+    category_name(string)- the name of the job category
+    description(string)- the description of the category
+    image(string)- the image to represent the category
+    
+    """
     category_name = models.CharField( max_length=50)
     description  = RichTextField()
     image = CloudinaryField('image')
@@ -40,13 +45,15 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
     def __str__(self):
-        """Unicode representation of Category."""
+        """Unicode representation of Category.
+        returns the unique job category's name 
+        """
         return self.category_name
 
 @receiver(pre_delete, sender=Category)
-
 def photo_delete(sender, instance, **kwargs):
+
     """
-    Deletes image associated to the instance of the category
+    Deletes image associated to a job category
     """
     cloudinary.uploader.destroy(instance.image.public_id)
