@@ -152,7 +152,7 @@ STATICFILES_DIRS = (
 )
 CORS_ORIGIN_ALLOW_ALL = True
 cloudinary.config(
-    cloud_name = config('CLOUDINARY_CLOUD_NAME'),
-    api_key = config('CLOUDINARY_API_KEY'),
-    api_secret = config('CLOUDINARY_API_SECRET')
+    cloud_name = "dczmdkhbw",
+    api_key = "651518656572252",
+    api_secret = "X4rxvkU4F6l2QZIOni4HKS3RYIg"
 )
