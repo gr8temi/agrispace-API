@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from decouple import config
+import cloudinary
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,7 +25,7 @@ SECRET_KEY = 'k4npo=2(dqxih*ib1*yylq$*0ij4bywg880^(&t=&ca-b5f+q6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = ['localhost','127.0.0.1','ancient-inlet-56922.herokuapp.com']
-
+print(config('DEBUG', cast=bool))
 
 # Application definition
 
@@ -43,7 +44,11 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'home',
+    'cloudinary',
+    'ckeditor'
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -146,3 +151,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'staticfiles'),
 )
 CORS_ORIGIN_ALLOW_ALL = True
+cloudinary.config(
+    cloud_name = "dczmdkhbw",
+    api_key = "651518656572252",
+    api_secret = "X4rxvkU4F6l2QZIOni4HKS3RYIg"
+)

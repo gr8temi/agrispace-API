@@ -1,4 +1,9 @@
 from django.db import models
+from django.dispatch import receiver
+from django.db.models.signals import pre_delete
+import cloudinary
+from cloudinary.models import CloudinaryField
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Information(models.Model):
@@ -11,7 +16,6 @@ class Information(models.Model):
     tagline = models.TextField()
     email = models.EmailField(max_length=256)
 
-
     class Meta:
         """Meta definition for Information."""
 
@@ -21,3 +25,35 @@ class Information(models.Model):
     def __str__(self):
         """Unicode representation of Information."""
         return self.name
+
+class Category(models.Model):
+    """Model definition for Category of jobs.
+
+    attributes:
+    category_name(string)- the name of the job category
+    description(string)- the description of the category
+    image(string)- the image to represent the category
+    
+    """
+    category_name = models.CharField( max_length=50)
+    description  = RichTextField()
+    image = CloudinaryField('image')
+    class Meta:
+        """Meta definition for Category."""
+
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        """Unicode representation of Category.
+        returns the unique job category's name 
+        """
+        return self.category_name
+
+@receiver(pre_delete, sender=Category)
+def photo_delete(sender, instance, **kwargs):
+
+    """
+    Deletes image associated to a job category
+    """
+    cloudinary.uploader.destroy(instance.image.public_id)
